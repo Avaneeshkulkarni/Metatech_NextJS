@@ -1,6 +1,7 @@
 
 import Carousel from "@/components/Carousel";
 
+
 export default function Home() {
   return (
     <main>
@@ -18,7 +19,7 @@ export default function Home() {
           <a href="#" className="cta-button">Learn More About Us</a>
         </div>
         <div className="about-image">
-          <img src="/images/38 Years.png" alt="38 Years in Service, Largest Range" />
+          <img src="images\38 years.png" alt="38 Years in Service, Largest Range" />
         </div>
       </section>
     </main>
