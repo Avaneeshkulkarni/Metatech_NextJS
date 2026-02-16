@@ -1,16 +1,135 @@
 "use client";
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import ProductSidebar from '@/components/ProductSidebar';
+import MachineImageCarousel from '@/components/MachineImageCarousel';
 
 export default function AutoCutting() {
-    const [mainImage, setMainImage] = useState("/images/Autocut S New Machine.png");
-
-    const images = [
-        "/images/Autocut S New Machine.png",
-        "/images/Metacut DCM New New.png",
-        "/images/Cutting Machin OLD 2 copy.png",
-        "/images/Metatech CNC final.png"
+    const machines = [
+        {
+            name: "Automatic Cutting Machine (Precision)",
+            model: "Autocut",
+            description: "Designed for automatic precision cutting with advanced motion control.",
+            images: [
+                "/Cutting and sectioning/Autocut_main.png",
+                "/Cutting and sectioning/autocut1.jpg",
+                "/Cutting and sectioning/autocut2.jpg",
+                "/Cutting and sectioning/autocut3.jpg",
+                "/Cutting and sectioning/autocutp.png"
+            ],
+            capabilities: "Features motorized XYZ motions and automatic serial cutting.",
+            precision: "Lateral X-axis positioning with 20 microns accuracy.",
+            specs: [
+                { label: "Motor Capacity", value: "5 HP" },
+                { label: "Cutting Capacity", value: "80mm round" },
+                { label: "Wheel Sizes", value: "250mm and 300mm diameter" },
+                { label: "Speed Variation", value: "200 to 4000 rpm" },
+                { label: "Auto Feed", value: "Job fed to the wheel at a rate of 0.1 mm to 10 mm per min" },
+                { label: "Motor Height", value: "Adjustable and motorized" }
+            ],
+            features: "Includes a T-slotted bed with a swivelling option. It features laser marking for smart cutting feed. Equipped with a strainer for small cut sections and an anti-splash guard cum first sludge collector."
+        },
+        {
+            name: "Metacut",
+            model: "SACT 50/80",
+            description: "A specialized machine for hardened cross-sections.",
+            images: [
+                "/Cutting and sectioning/metacut.png",
+                "/Cutting and sectioning/metacut1.png",
+                "/Cutting and sectioning/metacutwheel.png"
+            ],
+            capabilities: "Specifically mentions helical gear cutting for case depth inspection.",
+            specs: [
+                { label: "Capacity", value: "Cutting capacity of 50/80 mm diameter" },
+                { label: "Motor", value: "Capacity of 5/10 HP. The motor is located outside the cutting chamber" }
+            ],
+            advancedFeatures: [
+                "Features an XY Slide",
+                "Optional automatic Hydraulic Technology",
+                "Laser marking for precise positioning",
+                "Specifically mentions helical gear cutting for case depth inspection"
+            ]
+        },
+        {
+            name: "Oscicut",
+            model: "Oscillating Abrasive Cut-off Machine",
+            description: "Available in manual or automatic versions for large cutting cross-sections.",
+            images: [
+                "/Cutting and sectioning/oscillating.png",
+                "/Cutting and sectioning/oscillating2 img.png",
+                "/Cutting and sectioning/oscillating3.png"
+            ],
+            capabilities: "Principle cutting motor is oscillated (to and fro) by a bottom oscillation motor with cam-based technology.",
+            specs: [
+                { label: "Oscillation Stroke", value: "120 mm" },
+                { label: "Capacity", value: "120 mm to 160 mm" },
+                { label: "Motor Capacity", value: "15 HP" }
+            ],
+            userExperience: "Cutting feed is controlled by a hand-operated wheel for effortless cutting of large work volumes. One can operate the machine with sitting comfort.",
+            features: "Achieves minimal burn during the process. Includes a double parallel vice for large components."
+        },
+        {
+            name: "Metacut L Series",
+            model: "Large Component Cutting Machine",
+            description: "Offers unique features to cut heavy, hardened components.",
+            images: [
+                "/Cutting and sectioning/metacutL10.png",
+                "/Cutting and sectioning/metacutl15.png"
+            ],
+            models: [
+                "Metacut L 10: 10 HP motor capacity with 100 mm cutting capacity",
+                "Metacut L 15: 15 HP motor capacity with 120 mm cutting capacity"
+            ],
+            bedDesign: "T-slotted X-Y table measuring 450 mm x 450 mm",
+            manualModes: [
+                "Y-axis / Vertical (chop type)",
+                "Y-axis (to and fro) and Z vertical, maneuvered by front wheels",
+                "Effortless Z-motion via a large diameter wheel and lever/link mechanism",
+                "Firm locking of wheel position avoids vibrations and wheel breakage"
+            ],
+            automaticMode: {
+                type: "Y-axis Longitudinal cutting",
+                stroke: "300 mm Y-axis (for cutting diameter 50 mm)",
+                feed: "1 mm to 100 mm per minute (settable)",
+                speed: "2800 rpm (variable speed optional)"
+            },
+            advancedLogic: [
+                "Smart Cutting: Automatically reduces feed rate when encountering hard portions to reduce wheel damage",
+                "Pulse Cutting: Offers pulse cutting for hardness variation in the job",
+                "PLC Operation Panel: Allows for user-settable programs to optimize parameters like depth of cut, coolant flow, and number of cuts"
+            ]
+        },
+        {
+            name: "DCM",
+            model: "Diamond Cutting Machine",
+            description: "Precision sectioning for sensitive materials.",
+            images: [
+                "/Cutting and sectioning/diamond cutting.png",
+                "/Cutting and sectioning/dcm2.png"
+            ],
+            applications: "Suitable for hard samples, nitriding layer protection, aluminum, and retained austenite estimation.",
+            specs: [
+                { label: "Blade Type", value: "Diamond Wafering Blades" },
+                { label: "Diamond wheel thickness", value: "0.3 mm" },
+                { label: "Speed", value: "200-500 rpm" }
+            ]
+        },
+        {
+            name: "Metacut / Metacut-I",
+            model: "",
+            description: "",
+            images: [
+                "/Cutting and sectioning/metcutauto.png",
+                "/Cutting and sectioning/metcut.png"
+            ],
+            metacut: "3 HP motor with 40 mm diameter cutting capacity",
+            metacutI: {
+                description: "Features an automatic version for auto cutting in the Y direction",
+                control: "PLC controlled program",
+                stroke: "200 mm",
+                feedRange: "0.1 mm to 5 mm per min"
+            }
+        }
     ];
 
     return (
@@ -19,104 +138,175 @@ export default function AutoCutting() {
                 <div className="breadcrumb">
                     <Link href="/">Home</Link>
                     <span className="separator">/</span>
-                    <Link href="/products/auto_cutting">Cutting Machine</Link>
+                    <Link href="/products/auto_cutting">Cutting & Sectioning Machines</Link>
                     <span className="separator">/</span>
-                    <span className="current-page">Auto Cut</span>
+                    <span className="current-page">Machines</span>
                 </div>
             </div>
 
             <main className="product-page-container">
-
                 <ProductSidebar />
 
                 <section className="product-display">
                     <h1 className="main-product-heading">Cutting and Sectioning Machines</h1>
 
                     <div className="product-info-header">
-                        <h2 id="product-name">Automatic Cutting Machine (Autocut)</h2>
                         <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                            Our comprehensive range of cutting and sectioning machines are designed for precision metallographic sample preparation. From high-accuracy automatic cutting to heavy-duty sectioning, we offer solutions for every application.
                         </p>
                     </div>
 
-                    <div className="product-image-gallery">
-
-                        <div className="product-thumbnails">
-                            {images.map((img, index) => (
-                                <img
-                                    key={index}
-                                    src={img}
-                                    alt={`View ${index + 1}`}
-                                    className={`thumbnail ${mainImage === img ? 'active-thumb' : ''}`}
-                                    onClick={() => setMainImage(img)}
-                                />
-                            ))}
-                        </div>
-
-                        <div className="product-main-image-container">
-                            <img src={mainImage} alt="Automatic Cutting Machine Main View" id="main-product-image" />
-                        </div>
-                    </div>
                     <div className="product-details-content">
+                        {machines.map((machine, index) => (
+                            <div key={index} className="machine-section">
+                                <h2 className="machine-name">{machine.name}</h2>
+                                {machine.model && <h3 className="machine-model">{machine.model}</h3>}
 
-                        <h3 className="content-heading">Detailed Product Description</h3>
-                        <p className="product-description-text">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
-                        </p>
+                                <div className="machine-content-wrapper">
+                                    <MachineImageCarousel
+                                        images={machine.images}
+                                        altPrefix={`${machine.name} - ${machine.model}`}
+                                    />
 
-                        <hr className="section-divider" />
+                                    <div className="machine-details">
+                                        {machine.description && <p className="machine-description">{machine.description}</p>}
 
-                        <h3 className="content-heading">Key Features</h3>
-                        <ul className="feature-list">
-                            <li>**Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                            <li>**Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                            <li>**Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </li>
-                            <li>**Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </li>
-                            <li>**Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </li>
-                        </ul>
+                                        {machine.capabilities && (
+                                            <div className="machine-info-block">
+                                                <h4>Cutting Action</h4>
+                                                <p>{machine.capabilities}</p>
+                                            </div>
+                                        )}
 
-                        <hr className="section-divider" />
+                                        {machine.precision && (
+                                            <div className="machine-info-block">
+                                                <h4>Precision and Accuracy</h4>
+                                                <p>{machine.precision}</p>
+                                            </div>
+                                        )}
 
-                        <h3 className="content-heading">Tech Notes</h3>
-                        <div className="tech-notes-container">
-                            <span className="tech-note-bubble">The standard Lorem Ipsum passage, used since the 1500s</span>
-                            <span className="tech-note-bubble">The standard Lorem Ipsum passage, used since the 1500s</span>
-                            <span className="tech-note-bubble">The standard Lorem Ipsum passage, used since the 1500s</span>
-                            <span className="tech-note-bubble">The standard Lorem Ipsum passage, used since the 1500s</span>
-                            <span className="tech-note-bubble">The standard Lorem Ipsum passage, used since the 1500s</span>
-                        </div>
+                                        {machine.specs && machine.specs.length > 0 && (
+                                            <div className="machine-info-block">
+                                                <h4>Technical Specifications</h4>
+                                                <ul className="specs-list">
+                                                    {machine.specs.map((spec, idx) => (
+                                                        <li key={idx}>
+                                                            <strong>{spec.label}:</strong> {spec.value}
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        )}
 
-                        <hr className="section-divider" />
+                                        {machine.features && (
+                                            <div className="machine-info-block">
+                                                <h4>Key Features</h4>
+                                                <p>{machine.features}</p>
+                                            </div>
+                                        )}
 
-                        <h3 className="content-heading consumables-title">Consumables Required</h3>
-                        <div className="consumables-grid">
+                                        {machine.advancedFeatures && (
+                                            <div className="machine-info-block">
+                                                <h4>Advanced Features</h4>
+                                                <ul className="feature-list">
+                                                    {machine.advancedFeatures.map((feature, idx) => (
+                                                        <li key={idx}>{feature}</li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        )}
 
-                            <div className="consumable-item">
-                                <img src="/images/Cutting Machin OLD 2 copy.png" alt="Abrasive Cutting Wheel" className="consumable-image" />
-                                <p className="consumable-name">Abrasive Cutting Wheels</p>
+                                        {machine.userExperience && (
+                                            <div className="machine-info-block">
+                                                <h4>User Experience</h4>
+                                                <p>{machine.userExperience}</p>
+                                            </div>
+                                        )}
+
+                                        {machine.models && (
+                                            <div className="machine-info-block">
+                                                <h4>Models</h4>
+                                                <ul className="feature-list">
+                                                    {machine.models.map((model, idx) => (
+                                                        <li key={idx}>{model}</li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        )}
+
+                                        {machine.bedDesign && (
+                                            <div className="machine-info-block">
+                                                <h4>Bed Design</h4>
+                                                <p>{machine.bedDesign}</p>
+                                            </div>
+                                        )}
+
+                                        {machine.manualModes && (
+                                            <div className="machine-info-block">
+                                                <h4>Manual Cutting Modes</h4>
+                                                <ul className="feature-list">
+                                                    {machine.manualModes.map((mode, idx) => (
+                                                        <li key={idx}>{mode}</li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        )}
+
+                                        {machine.automaticMode && (
+                                            <div className="machine-info-block">
+                                                <h4>Automatic Cutting Mode</h4>
+                                                <ul className="specs-list">
+                                                    <li><strong>Type:</strong> {machine.automaticMode.type}</li>
+                                                    <li><strong>Cutting stroke:</strong> {machine.automaticMode.stroke}</li>
+                                                    <li><strong>Cutting feed:</strong> {machine.automaticMode.feed}</li>
+                                                    <li><strong>Cutting speed:</strong> {machine.automaticMode.speed}</li>
+                                                </ul>
+                                            </div>
+                                        )}
+
+                                        {machine.advancedLogic && (
+                                            <div className="machine-info-block">
+                                                <h4>Advanced Logic</h4>
+                                                <ul className="feature-list">
+                                                    {machine.advancedLogic.map((logic, idx) => (
+                                                        <li key={idx}>{logic}</li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        )}
+
+                                        {machine.applications && (
+                                            <div className="machine-info-block">
+                                                <h4>Applications</h4>
+                                                <p>{machine.applications}</p>
+                                            </div>
+                                        )}
+
+                                        {machine.metacut && (
+                                            <div className="machine-info-block">
+                                                <h4>Metacut</h4>
+                                                <p>{machine.metacut}</p>
+                                            </div>
+                                        )}
+
+                                        {machine.metacutI && (
+                                            <div className="machine-info-block">
+                                                <h4>Metacut-I (Auto)</h4>
+                                                <p>{machine.metacutI.description}</p>
+                                                <ul className="specs-list">
+                                                    <li><strong>Control:</strong> {machine.metacutI.control}</li>
+                                                    <li><strong>Cutting stroke:</strong> {machine.metacutI.stroke}</li>
+                                                    <li><strong>Feed range:</strong> {machine.metacutI.feedRange}</li>
+                                                </ul>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+
+                                {index < machines.length - 1 && <hr className="section-divider" />}
                             </div>
+                        ))}
 
-                            <div className="consumable-item">
-                                <img src="/images/Component Cleaning.png" alt="Cooling Fluid" className="consumable-image" />
-                                <p className="consumable-name">Cooling Fluid / Inhibitor</p>
-                            </div>
-
-                            <div className="consumable-item">
-                                <img src="/images/tech notes.jpeg" alt="Filter Paper" className="consumable-image" />
-                                <p className="consumable-name">Recirculation Filter Paper</p>
-                            </div>
-
-                            <div className="consumable-item">
-                                <img src="/images/tech notes.jpeg" alt="Filter Paper" className="consumable-image" />
-                                <p className="consumable-name">Recirculation Filter Paper</p>
-                            </div>
-
-                            <div className="consumable-item">
-                                <img src="/images/tech notes.jpeg" alt="Filter Paper" className="consumable-image" />
-                                <p className="consumable-name">Recirculation Filter Paper</p>
-                            </div>
-
-                        </div>
                     </div>
                 </section>
 

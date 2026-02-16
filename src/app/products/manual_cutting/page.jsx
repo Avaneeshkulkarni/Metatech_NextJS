@@ -1,16 +1,10 @@
 "use client";
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import ProductSidebar from '@/components/ProductSidebar';
+import MachineImageCarousel from '@/components/MachineImageCarousel';
 
 export default function ManualCutting() {
-    // Images corresponding to the manual machine (using the same paths as in the key HTML if consistent, or what's in use)
-    // The HTML used similar images but let's double check if we need specific ones.
-    // HTML uses: Autocut S New Machine.png, Metacut DCM New New.png, Cutting Machin OLD 2 copy.png, Metatech CNC final.png
-    // It seems to be the same set of placeholder images as Autocut, but the text is different.
-
-    const [mainImage, setMainImage] = useState("/images/Autocut S New Machine.png");
-
     const images = [
         "/images/Autocut S New Machine.png",
         "/images/Metacut DCM New New.png",
@@ -44,23 +38,11 @@ export default function ManualCutting() {
                         </p>
                     </div>
 
-                    <div className="product-image-gallery">
-
-                        <div className="product-thumbnails">
-                            {images.map((img, index) => (
-                                <img
-                                    key={index}
-                                    src={img}
-                                    alt={`View ${index + 1}`}
-                                    className={`thumbnail ${mainImage === img ? 'active-thumb' : ''}`}
-                                    onClick={() => setMainImage(img)}
-                                />
-                            ))}
-                        </div>
-
-                        <div className="product-main-image-container">
-                            <img src={mainImage} alt="Manual Cutting Machine Main View" id="main-product-image" />
-                        </div>
+                    <div className="product-image-gallery-carousel">
+                        <MachineImageCarousel
+                            images={images}
+                            altPrefix="Manual Cutting Machine"
+                        />
                     </div>
                     <div className="product-details-content">
 

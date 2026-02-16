@@ -1,18 +1,34 @@
 "use client";
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import ProductSidebar from '@/components/ProductSidebar';
 
 export default function Microhardness() {
-    // Placeholder image
-    const [mainImage, setMainImage] = useState("/images/Microscope Metagraph Special SPL.png");
-
-    // Placeholder images array (using same image for now to prevent errors)
-    const images = [
-        "/images/Microscope Metagraph Special SPL.png",
-        "/images/Microscope Metagraph Special SPL.png",
-        "/images/Microscope Metagraph Special SPL.png",
-        "/images/Microscope Metagraph Special SPL.png"
+    const machines = [
+        {
+            name: "MVH - V (Fully Automatic)",
+            image: "/images/logo.png",
+            features: [
+                "Motorized X-Y & Z Motion",
+                "Autofocus & Auto Reading",
+                "Manual Over-ride for all Automation",
+                "Automatic Effective Case Graph Generation",
+                "Load Range - 1 gram to 2000 grams (3000 grams Optional)",
+                "Optional - Overview camera grabbing complete image of the component and operator giving directions of hardness profile from computer screen only"
+            ]
+        },
+        {
+            name: "Micro / Macro Hardness Tester",
+            subtitle: "Load Cell Based",
+            image: "/images/logo.png",
+            features: [
+                "Load cell base with loop Technology",
+                "Options from 10gmf to 30kgf",
+                "Auto focusing Optional",
+                "Auto XY stage Optional",
+                "upto 30 Kg More than 10 installed in 10 Years"
+            ]
+        }
     ];
 
     return (
@@ -21,63 +37,54 @@ export default function Microhardness() {
                 <div className="breadcrumb">
                     <Link href="/">Home</Link>
                     <span className="separator">/</span>
-                    <Link href="/products/microhardness">Microhardness Testers</Link>
+                    <Link href="/products/microhardness">Automatic Micro Hardness Testers</Link>
                 </div>
             </div>
 
             <main className="product-page-container">
-
                 <ProductSidebar />
 
                 <section className="product-display">
-                    <h1 className="main-product-heading">Microhardness Testers</h1>
+                    <h1 className="main-product-heading">Automatic Micro Hardness Testers</h1>
 
                     <div className="product-info-header">
-                        <h2 id="product-name">Microhardness Testers - Product Details</h2>
                         <p>
-                            Detailed information about Microhardness Testers. This section will contain specific technical details, features, and descriptions for the Microhardness Testers product range.
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Our range of automatic micro hardness testers for precise hardness measurement in metallographic applications.
                         </p>
                     </div>
 
-                    <div className="product-image-gallery">
-
-                        <div className="product-thumbnails">
-                            {images.map((img, index) => (
-                                <img
-                                    key={index}
-                                    src={img}
-                                    alt={`View ${index + 1}`}
-                                    className={`thumbnail ${mainImage === img ? 'active-thumb' : ''}`}
-                                    onClick={() => setMainImage(img)}
-                                />
-                            ))}
-                        </div>
-
-                        <div className="product-main-image-container">
-                            <img src={mainImage} alt="Microhardness Testers Main View" id="main-product-image" />
-                        </div>
-                    </div>
                     <div className="product-details-content">
+                        {machines.map((machine, index) => (
+                            <div key={index} className="machine-section">
+                                <h2 className="machine-name">{machine.name}</h2>
+                                {machine.subtitle && <h3 className="machine-subtitle">{machine.subtitle}</h3>}
 
-                        <h3 className="content-heading">Description</h3>
-                        <p className="product-description-text">
-                            Comprehensive description of the Microhardness Testers. It is designed for high precision and durability in industrial applications.
-                        </p>
+                                <div className="machine-content-wrapper">
+                                    <div className="machine-image-container">
+                                        <img
+                                            src={machine.image}
+                                            alt={machine.name}
+                                            className="machine-image"
+                                        />
+                                    </div>
 
-                        <hr className="section-divider" />
+                                    <div className="machine-details">
+                                        <div className="machine-info-block">
+                                            <h4>Key Features</h4>
+                                            <ul className="specs-list">
+                                                {machine.features.map((feature, idx) => (
+                                                    <li key={idx}>{feature}</li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
 
-                        <h3 className="content-heading">Key Features</h3>
-                        <ul className="feature-list">
-                            <li>High quality construction and durable design.</li>
-                            <li>Advanced features for precision control.</li>
-                            <li>Easy to operate and maintain.</li>
-                            <li>Suitable for various industrial material science applications.</li>
-                        </ul>
-
+                                {index < machines.length - 1 && <hr className="section-divider" />}
+                            </div>
+                        ))}
                     </div>
                 </section>
-
             </main>
         </section>
     );

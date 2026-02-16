@@ -31,11 +31,12 @@ export default function ProductsPage() {
         { href: "/products/microscope", img: "/images/Microscope Metagraph Special SPL.png", title: "Microscope & Image Analyzer" },
         { href: "/products/particle_analysis", img: "/images/Microscope Metagraph Special SPL.png", title: "Particle Size Analysis Contamination Estimation" },
         { href: "/products/microhardness", img: "/images/Microscope Metagraph Special SPL.png", title: "Micorhardness Testers" },
-        { href: "/products/jominey", img: "/images/Twin Jet Thinning New.png", title: "Jominey Setup & Insitu Setup" },
-        { href: "/products/ecm", img: "/images/ECM New by Swapnil Sir.png", title: "ECM" },
-        { href: "/products/cnc_tensile", img: "/images/CNC Tensile NEW.png", title: "CNC & Laser Tensile Sample Preparation" },
-        { href: "/products/consumables", img: "/images/Component Cleaning.png", title: "Consumables" },
-        { href: "/products/tech_notes", img: "/images/tech notes.jpeg", title: "Tech Notes" }
+        { href: "/products/jominey", img: "/images/Twin Jet Thinning New.png", title: "Jominey End Quench Hardenability Set-up" },
+        { href: "/products/consumables", img: "/images/Component Cleaning.png", title: "Metallography Consumables" },
+        { href: "/products/in_situ_metallography", img: "/images/logo.png", title: "In-situ metallography kit" },
+        { href: "/products/hardness_testers", img: "/images/logo.png", title: "Hardness Testers" },
+        { href: "/products/hardness_test_blocks", img: "/images/logo.png", title: "Hardness Test Blocks Diamond Indenters" },
+        { href: "/products/cnc_tensile", img: "/images/logo.png", title: "CNC Tensile Sample Preparation Machines" }
     ];
 
     return (

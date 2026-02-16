@@ -37,6 +37,9 @@ const Footer = () => {
                         <li><Link href="/products/microscope">Microscopes & Analyzers</Link></li>
                         <li><Link href="/products/microhardness">Microhardness Testers</Link></li>
                         <li><Link href="/products/consumables">Consumables</Link></li>
+                        <li><Link href="/products/in_situ_metallography">In-situ metallography kit</Link></li>
+                        <li><Link href="/products/hardness_testers">Hardness Testers</Link></li>
+                        <li><Link href="/products/hardness_test_blocks">Hardness Test Blocks</Link></li>
                     </ul>
                 </div>
 

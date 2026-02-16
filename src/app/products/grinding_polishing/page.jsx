@@ -1,18 +1,13 @@
 "use client";
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import ProductSidebar from '@/components/ProductSidebar';
 
 export default function GrindingPolishing() {
-    // Placeholder image
-    const [mainImage, setMainImage] = useState("/images/New Grinder Image Maybe.png");
-
-    // Placeholder images array (using same image for now to prevent errors)
-    const images = [
-        "/images/New Grinder Image Maybe.png",
-        "/images/New Grinder Image Maybe.png",
-        "/images/New Grinder Image Maybe.png",
-        "/images/New Grinder Image Maybe.png"
+    const subPages = [
+        { href: "/products/grinding_polishing/machines", title: "Machines", description: "View our complete range of grinding and polishing machines." },
+        { href: "/products/grinding_polishing/grinding_consumables", title: "Grinding Consumables", description: "Grinding papers, discs and related consumables." },
+        { href: "/products/grinding_polishing/polishing_consumables", title: "Polishing Consumables", description: "Polishing cloths, suspensions and related consumables." }
     ];
 
     return (
@@ -21,64 +16,40 @@ export default function GrindingPolishing() {
                 <div className="breadcrumb">
                     <Link href="/">Home</Link>
                     <span className="separator">/</span>
-                    <Link href="/products/grinding_polishing">Grinding & Polishing Machine</Link>
+                    <Link href="/products/grinding_polishing">Grinding & Polishing</Link>
                 </div>
             </div>
 
             <main className="product-page-container">
-
                 <ProductSidebar />
 
                 <section className="product-display">
-                    <h1 className="main-product-heading">Grinding & Polishing Machine</h1>
+                    <h1 className="main-product-heading">Grinding & Polishing</h1>
 
                     <div className="product-info-header">
-                        <h2 id="product-name">Grinding & Polishing Machine - Product Details</h2>
                         <p>
-                            Detailed information about Grinding & Polishing Machine. This section will contain specific technical details, features, and descriptions for the Grinding & Polishing Machine product range.
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Our comprehensive range of grinding and polishing machines and consumables for precision metallographic sample preparation.
                         </p>
                     </div>
 
-                    <div className="product-image-gallery">
-
-                        <div className="product-thumbnails">
-                            {images.map((img, index) => (
-                                <img
-                                    key={index}
-                                    src={img}
-                                    alt={`View ${index + 1}`}
-                                    className={`thumbnail ${mainImage === img ? 'active-thumb' : ''}`}
-                                    onClick={() => setMainImage(img)}
-                                />
+                    <div className="product-details-content">
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '25px' }}>
+                            {subPages.map((page, index) => (
+                                <Link key={index} href={page.href} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                    <div style={{ border: '1px solid #ddd', borderRadius: '8px', padding: '30px', textAlign: 'center', transition: 'all 0.3s ease', cursor: 'pointer', backgroundColor: 'white', boxShadow: '0 4px 10px rgba(0,0,0,0.05)' }}
+                                        onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--accent-color)'; e.currentTarget.style.color = 'white'; e.currentTarget.style.transform = 'translateY(-5px)'; }}
+                                        onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'white'; e.currentTarget.style.color = 'inherit'; e.currentTarget.style.transform = 'translateY(0)'; }}
+                                    >
+                                        <h3 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '10px' }}>{page.title}</h3>
+                                        <p style={{ fontSize: '14px', lineHeight: '1.5' }}>{page.description}</p>
+                                    </div>
+                                </Link>
                             ))}
                         </div>
-
-                        <div className="product-main-image-container">
-                            <img src={mainImage} alt="Grinding & Polishing Machine Main View" id="main-product-image" />
-                        </div>
-                    </div>
-                    <div className="product-details-content">
-
-                        <h3 className="content-heading">Description</h3>
-                        <p className="product-description-text">
-                            Comprehensive description of the Grinding & Polishing Machine. It is designed for high precision and durability in industrial applications.
-                        </p>
-
-                        <hr className="section-divider" />
-
-                        <h3 className="content-heading">Key Features</h3>
-                        <ul className="feature-list">
-                            <li>High quality construction and durable design.</li>
-                            <li>Advanced features for precision control.</li>
-                            <li>Easy to operate and maintain.</li>
-                            <li>Suitable for various industrial material science applications.</li>
-                        </ul>
-
                     </div>
                 </section>
-
             </main>
         </section>
     );
 }
+

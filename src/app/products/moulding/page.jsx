@@ -1,18 +1,31 @@
 "use client";
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import ProductSidebar from '@/components/ProductSidebar';
 
 export default function MouldingMachine() {
-    // Placeholder image
-    const [mainImage, setMainImage] = useState("/images/New Grinder Image Maybe.png");
-
-    // Placeholder images array (using same image for now to prevent errors)
-    const images = [
-        "/images/New Grinder Image Maybe.png",
-        "/images/New Grinder Image Maybe.png",
-        "/images/New Grinder Image Maybe.png",
-        "/images/New Grinder Image Maybe.png"
+    const machines = [
+        {
+            name: "Electro Press",
+            description: "Complete electro mechanical operation.",
+            image: "/images/New Grinder Image Maybe.png",
+            imageCaption: "Automount E"
+        },
+        {
+            name: "Electro Hydraulic Press",
+            description: "Four mould capability with dual mould cylinder.",
+            image: "/images/New Grinder Image Maybe.png",
+            specs: [
+                { label: "Pressure", value: "300 Bar" }
+            ],
+            features: "Four samples at a time for better through put for auto grinder polisher.",
+            imageCaption: "Automount EH"
+        },
+        {
+            name: "Pneumatic Press",
+            image: "/images/New Grinder Image Maybe.png",
+            imageCaption: "Automount"
+        }
     ];
 
     return (
@@ -26,54 +39,70 @@ export default function MouldingMachine() {
             </div>
 
             <main className="product-page-container">
-
                 <ProductSidebar />
 
                 <section className="product-display">
-                    <h1 className="main-product-heading">Moulding Machine</h1>
+                    <h1 className="main-product-heading">Moulding Machines</h1>
 
                     <div className="product-info-header">
-                        <h2 id="product-name">Moulding Machine - Product Details</h2>
                         <p>
-                            Detailed information about Moulding Machine. This section will contain specific technical details, features, and descriptions for the Moulding Machine product range.
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Our range of moulding machines designed for precision sample preparation in metallographic applications.
                         </p>
                     </div>
 
-                    <div className="product-image-gallery">
-
-                        <div className="product-thumbnails">
-                            {images.map((img, index) => (
-                                <img
-                                    key={index}
-                                    src={img}
-                                    alt={`View ${index + 1}`}
-                                    className={`thumbnail ${mainImage === img ? 'active-thumb' : ''}`}
-                                    onClick={() => setMainImage(img)}
-                                />
-                            ))}
-                        </div>
-
-                        <div className="product-main-image-container">
-                            <img src={mainImage} alt="Moulding Machine Main View" id="main-product-image" />
-                        </div>
-                    </div>
                     <div className="product-details-content">
+                        {machines.map((machine, index) => (
+                            <div key={index} className="machine-section">
+                                <h2 className="machine-name">{machine.name}</h2>
 
-                        <h3 className="content-heading">Description</h3>
-                        <p className="product-description-text">
-                            Comprehensive description of the Moulding Machine. It is designed for high precision and durability in industrial applications.
-                        </p>
+                                <div className="machine-content-wrapper">
+                                    <div className="machine-image-container">
+                                        <img
+                                            src={machine.image}
+                                            alt={machine.name}
+                                            className="machine-image"
+                                        />
+                                        {machine.imageCaption && (
+                                            <p className="image-caption">{machine.imageCaption}</p>
+                                        )}
+                                    </div>
+
+                                    <div className="machine-details">
+                                        {machine.description && <p className="machine-description">{machine.description}</p>}
+
+                                        {machine.specs && machine.specs.length > 0 && (
+                                            <div className="machine-info-block">
+                                                <h4>Technical Specifications</h4>
+                                                <ul className="specs-list">
+                                                    {machine.specs.map((spec, idx) => (
+                                                        <li key={idx}>
+                                                            <strong>{spec.label}:</strong> {spec.value}
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        )}
+
+                                        {machine.features && (
+                                            <div className="machine-info-block">
+                                                <h4>Key Features</h4>
+                                                <p>{machine.features}</p>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+
+                                {index < machines.length - 1 && <hr className="section-divider" />}
+                            </div>
+                        ))}
 
                         <hr className="section-divider" />
 
-                        <h3 className="content-heading">Key Features</h3>
-                        <ul className="feature-list">
-                            <li>High quality construction and durable design.</li>
-                            <li>Advanced features for precision control.</li>
-                            <li>Easy to operate and maintain.</li>
-                            <li>Suitable for various industrial material science applications.</li>
-                        </ul>
+                        <div style={{ textAlign: 'center', marginTop: '30px' }}>
+                            <Link href="/products/moulding/consumables" className="cta-button" style={{ display: 'inline-block', padding: '12px 30px', backgroundColor: 'var(--accent-color)', color: 'white', borderRadius: '6px', textDecoration: 'none', fontWeight: '600', fontSize: '16px' }}>
+                                View Moulding Consumables →
+                            </Link>
+                        </div>
 
                     </div>
                 </section>

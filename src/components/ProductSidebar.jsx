@@ -13,25 +13,27 @@ export default function ProductSidebar() {
         <aside className="product-sidebar">
             <h3>Product Categories</h3>
             <ul className="category-menu">
-                <li className={`category-item ${isCategoryActive(['/products/auto_cutting', '/products/manual_cutting'])}`}>
-                    <a href="#">Cutting Machine</a>
+                <li className={`category-item ${isCategoryActive(['/products/auto_cutting', '/products/auto_cutting/consumables'])}`}>
+                    <a href="#">Cutting and Sectioning Machine</a>
                     <ul className="sub-category-menu">
-                        <li><Link href="/products/manual_cutting" className={isActive('/products/manual_cutting')}>Manual Machine</Link></li>
-                        <li><Link href="/products/auto_cutting" className={isActive('/products/auto_cutting')}>Automatic Machine</Link></li>
+                        <li><Link href="/products/auto_cutting" className={isActive('/products/auto_cutting')}>Machines</Link></li>
+                        <li><Link href="/products/auto_cutting/consumables" className={isActive('/products/auto_cutting/consumables')}>Consumables</Link></li>
                     </ul>
                 </li>
-                <li className="category-item">
-                    <a href="#">Sectioning Machine</a>
+                <li className={`category-item ${isCategoryActive(['/products/moulding', '/products/moulding/consumables'])}`}>
+                    <a href="#">Moulding Machine</a>
                     <ul className="sub-category-menu">
-                        <li><Link href="/products/manual_cutting" className={isActive('/products/manual_cutting')}>Manual Machine</Link></li>
-                        <li><Link href="/products/auto_cutting" className={isActive('/products/auto_cutting')}>Automatic Machine</Link></li>
+                        <li><Link href="/products/moulding" className={isActive('/products/moulding')}>Machines</Link></li>
+                        <li><Link href="/products/moulding/consumables" className={isActive('/products/moulding/consumables')}>Consumables</Link></li>
                     </ul>
                 </li>
-                <li className="category-item">
-                    <Link href="/products/moulding" className={isActive('/products/moulding')}>Moulding Machine</Link>
-                </li>
-                <li className="category-item">
-                    <Link href="/products/grinding_polishing" className={isActive('/products/grinding_polishing')}>Grinding & Polishing</Link>
+                <li className={`category-item ${isCategoryActive(['/products/grinding_polishing', '/products/grinding_polishing/machines', '/products/grinding_polishing/grinding_consumables', '/products/grinding_polishing/polishing_consumables'])}`}>
+                    <a href="#">Grinding & Polishing</a>
+                    <ul className="sub-category-menu">
+                        <li><Link href="/products/grinding_polishing/machines" className={isActive('/products/grinding_polishing/machines')}>Machines</Link></li>
+                        <li><Link href="/products/grinding_polishing/grinding_consumables" className={isActive('/products/grinding_polishing/grinding_consumables')}>Grinding Consumables</Link></li>
+                        <li><Link href="/products/grinding_polishing/polishing_consumables" className={isActive('/products/grinding_polishing/polishing_consumables')}>Polishing Consumables</Link></li>
+                    </ul>
                 </li>
                 <li className="category-item">
                     <Link href="/products/electropolishing" className={isActive('/products/electropolishing')}>ElectroPolishing</Link>
@@ -46,19 +48,22 @@ export default function ProductSidebar() {
                     <Link href="/products/microhardness" className={isActive('/products/microhardness')}>Microhardness Testers</Link>
                 </li>
                 <li className="category-item">
-                    <Link href="/products/jominey" className={isActive('/products/jominey')}>Jominey & Insitu Setup</Link>
+                    <Link href="/products/jominey" className={isActive('/products/jominey')}>Jominey End Quench Hardenability Set-up</Link>
                 </li>
                 <li className="category-item">
-                    <Link href="/products/ecm" className={isActive('/products/ecm')}>ECM</Link>
+                    <Link href="/products/consumables" className={isActive('/products/consumables')}>Metallography Consumables</Link>
                 </li>
                 <li className="category-item">
-                    <Link href="/products/cnc_tensile" className={isActive('/products/cnc_tensile')}>CNC & Laser Tensile</Link>
+                    <Link href="/products/in_situ_metallography" className={isActive('/products/in_situ_metallography')}>In-situ metallography kit</Link>
                 </li>
                 <li className="category-item">
-                    <Link href="/products/consumables" className={isActive('/products/consumables')}>Consumables</Link>
+                    <Link href="/products/hardness_testers" className={isActive('/products/hardness_testers')}>Hardness Testers</Link>
                 </li>
                 <li className="category-item">
-                    <Link href="/products/tech_notes" className={isActive('/products/tech_notes')}>Tech Notes</Link>
+                    <Link href="/products/hardness_test_blocks" className={isActive('/products/hardness_test_blocks')}>Hardness Test Blocks Diamond Indenters</Link>
+                </li>
+                <li className="category-item">
+                    <Link href="/products/cnc_tensile" className={isActive('/products/cnc_tensile')}>CNC Tensile Sample Preparation</Link>
                 </li>
             </ul>
         </aside>

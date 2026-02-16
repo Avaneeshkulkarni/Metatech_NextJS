@@ -1209,3 +1209,588 @@ nav {
 .product-card:hover h3 {
     color: white;
 }
+
+/* Responsive Design */
+.mobile-menu-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 28px;
+        color: var(--text-dark);
+        cursor: pointer;
+        margin-left: auto;
+        /* Push to right if flex container allows */
+    }
+
+    .menu {
+        display: none;
+        /* Hidden by default on mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        padding: 20px;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        border-top: 1px solid #eee;
+    }
+
+    .menu.mobile-open {
+        display: flex;
+    }
+
+    .menu li {
+        width: 100%;
+        text-align: left;
+        border-bottom: 1px solid #f5f5f5;
+    }
+
+    .menu li:last-child {
+        border-bottom: none;
+    }
+
+    .menu li a {
+        display: block;
+        padding: 12px 0;
+        width: 100%;
+    }
+
+    /* Adjust Dropdown behavior for mobile if needed, or hide it */
+    .dropdown {
+        position: static;
+        /* Stack naturally */
+        width: 100%;
+        box-shadow: none;
+        padding: 10px 0 10px 20px;
+        display: none;
+        /* Hide by default, show on click/hover? For now rely on hover or make it always visible if parent is clicked? */
+        /* Since hover doesn't work well on mobile, making it block when parent is "active" is better, but for now simple stacking */
+    }
+
+    .products-menu:hover .dropdown {
+        display: grid;
+        grid-template-columns: 1fr;
+        /* Single column */
+    }
+
+    /* Global adjustments */
+    body {
+        padding-top: 80px !important;
+    }
+
+    .main-navbar-content {
+        padding: 15px 20px;
+    }
+
+    /* Carousel adjustments */
+    .slide img {
+        height: 300px;
+        object-position: center;
+    }
+
+    .slide-caption {
+        padding: 20px;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 100%);
+        width: 100%;
+        left: 0;
+        bottom: 0;
+    }
+
+    .slide-caption h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        line-height: 1.2;
+    }
+
+    .slide-caption p {
+        font-size: 14px;
+        margin-bottom: 15px;
+        max-width: 100%;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .prev,
+    .next {
+        padding: 10px;
+        font-size: 18px;
+        background-color: rgba(0, 0, 0, 0.6);
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* About Section */
+    .about-section {
+        flex-direction: column;
+        padding: 40px 20px;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .about-content h2 {
+        font-size: 28px;
+    }
+
+    .about-image img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Footer */
+    .main-footer {
+        padding: 40px 20px 20px 20px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+        margin: 0 auto 30px auto;
+    }
+
+    .footer-logo-col,
+    .footer-links-col,
+    .footer-products-col,
+    .footer-contact-col {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer-logo-col .footer-logo {
+        margin: 0 auto 20px auto;
+        width: 150px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
+        padding-top: 20px;
+        margin-top: 20px;
+    }
+
+    .footer-legal-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-legal-links a {
+        margin: 0;
+    }
+
+    /* Product Page Mobile */
+    .product-page-container {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .product-sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .product-image-gallery {
+        flex-direction: column-reverse;
+    }
+
+    .product-thumbnails {
+        flex-direction: row;
+        width: 100%;
+        overflow-x: auto;
+        justify-content: flex-start;
+        height: auto;
+        padding-bottom: 10px;
+        gap: 10px;
+    }
+
+    .thumbnail {
+        width: 70px;
+        height: 70px;
+        flex-shrink: 0;
+    }
+
+    /* Ensure images don't overflow */
+    img,
+    video {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Extra small devices (phones, 320px to 480px) */
+@media screen and (max-width: 480px) {
+    .main-navbar-content {
+        padding: 10px 15px;
+    }
+
+    .logo {
+        width: 110px;
+    }
+
+    .contact-heading {
+        font-size: 32px;
+    }
+
+    .topic-heading {
+        font-size: 22px;
+    }
+
+    .slide-caption h1 {
+        font-size: 20px;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+        /* Stack products fully on very small screens */
+    }
+}
+
+/* Machine Image Carousel */
+.machine-carousel {
+    flex-shrink: 0;
+    width: 350px;
+}
+
+.machine-carousel-viewport {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background-color: #fafafa;
+}
+
+.machine-carousel-image {
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    padding: 15px;
+    display: block;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.machine-carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    z-index: 2;
+}
+
+.machine-carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.machine-carousel-prev {
+    left: 8px;
+}
+
+.machine-carousel-next {
+    right: 8px;
+}
+
+.machine-carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.machine-carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #ccc;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.machine-carousel-dot:hover {
+    background-color: #999;
+}
+
+.machine-carousel-dot.active {
+    background-color: var(--accent-color);
+    transform: scale(1.2);
+}
+
+.product-image-gallery-carousel {
+    margin-bottom: 30px;
+    max-width: 500px;
+}
+
+.product-image-gallery-carousel .machine-carousel {
+    width: 100%;
+}
+
+.product-image-gallery-carousel .machine-carousel-image {
+    height: 350px;
+}
+
+@media (max-width: 768px) {
+    .machine-carousel {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .product-image-gallery-carousel {
+        max-width: 100%;
+    }
+}
+
+/* Machine Section Styles */
+.machine-section {
+    margin-bottom: 50px;
+}
+
+.machine-name {
+    font-size: 28px;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.machine-model {
+    font-size: 18px;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.machine-content-wrapper {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.machine-image-container {
+    flex-shrink: 0;
+    width: 350px;
+}
+
+.machine-image {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    object-fit: contain;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #fafafa;
+}
+
+.machine-details {
+    flex-grow: 1;
+}
+
+.machine-description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.machine-info-block {
+    margin-bottom: 20px;
+}
+
+.machine-info-block h4 {
+    font-size: 18px;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    font-weight: 600;
+    border-left: 3px solid var(--accent-color);
+    padding-left: 10px;
+}
+
+.machine-info-block p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #666;
+}
+
+.specs-list {
+    list-style: none;
+    padding-left: 0;
+    font-size: 15px;
+}
+
+.specs-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+    color: #555;
+}
+
+.specs-list li:last-child {
+    border-bottom: none;
+}
+
+.specs-list li strong {
+    color: var(--text-dark);
+    font-weight: 600;
+    min-width: 180px;
+    display: inline-block;
+}
+
+/* Responsive design for machine sections */
+@media (max-width: 768px) {
+    .machine-content-wrapper {
+        flex-direction: column;
+    }
+
+    .machine-image-container {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .machine-name {
+        font-size: 24px;
+    }
+
+    .machine-model {
+        font-size: 16px;
+    }
+}
+
+.consumable-description {
+    font-size: 13px;
+    color: #666;
+    margin-top: 5px;
+    line-height: 1.4;
+}
+
+.image-caption {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+.feature-list {
+    list-style: disc;
+    padding-left: 20px;
+    font-size: 15px;
+}
+
+.feature-list li {
+    padding: 5px 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Multiple images grid layout */
+.machine-images-grid {
+    display: flex;
+    gap: 20px;
+    flex-shrink: 0;
+    width: auto;
+}
+
+.machine-images-grid .machine-image-container {
+    width: 250px;
+}
+
+@media (max-width: 768px) {
+    .machine-images-grid {
+        flex-direction: column;
+    }
+
+    .machine-images-grid .machine-image-container {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+.image-sub-caption {
+    text-align: center;
+    font-size: 13px;
+    color: #777;
+    margin-top: 4px;
+    line-height: 1.4;
+}
+
+/* Machine subtitle */
+.machine-subtitle {
+    font-size: 18px;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    font-weight: 500;
+    font-style: italic;
+}
+
+/* Specs table */
+.specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.specs-table th,
+.specs-table td {
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    text-align: center;
+}
+
+.specs-table th {
+    background-color: var(--accent-color);
+    color: white;
+    font-weight: 600;
+}
+
+.specs-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.specs-table tr:hover {
+    background-color: #f0f0f0;
+}
+
+/* Grid layout for hardness tester images */
+.machine-grid-item {
+    flex: 0 0 auto;
+}
+
+.machine-images-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    width: auto;
+}
