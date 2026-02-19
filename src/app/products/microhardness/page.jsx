@@ -2,12 +2,13 @@
 import React from 'react';
 import Link from 'next/link';
 import ProductSidebar from '@/components/ProductSidebar';
+import MachineImageCarousel from '@/components/MachineImageCarousel';
 
 export default function Microhardness() {
     const machines = [
         {
             name: "MVH - V (Fully Automatic)",
-            image: "/images/logo.png",
+            images: ["/microhardness_tester/mvh5.1.png", "/microhardness_tester/mvh5.2.png"],
             features: [
                 "Motorized X-Y & Z Motion",
                 "Autofocus & Auto Reading",
@@ -20,7 +21,7 @@ export default function Microhardness() {
         {
             name: "Micro / Macro Hardness Tester",
             subtitle: "Load Cell Based",
-            image: "/images/logo.png",
+            image: "/microhardness_tester/macro.png",
             features: [
                 "Load cell base with loop Technology",
                 "Options from 10gmf to 30kgf",
@@ -28,6 +29,14 @@ export default function Microhardness() {
                 "Auto XY stage Optional",
                 "upto 30 Kg More than 10 installed in 10 Years"
             ]
+        },
+        {
+            name: "MVH-1000",
+            images: ["/microhardness_tester/mvh1000.png", "/microhardness_tester/mvh1000.2.png"]
+        },
+        {
+            name: "MVH-1C",
+            images: ["/microhardness_tester/mvhc1.png", "/microhardness_tester/mvhc2.png"]
         }
     ];
 
@@ -60,24 +69,36 @@ export default function Microhardness() {
                                 {machine.subtitle && <h3 className="machine-subtitle">{machine.subtitle}</h3>}
 
                                 <div className="machine-content-wrapper">
-                                    <div className="machine-image-container">
-                                        <img
-                                            src={machine.image}
-                                            alt={machine.name}
-                                            className="machine-image"
-                                        />
-                                    </div>
-
-                                    <div className="machine-details">
-                                        <div className="machine-info-block">
-                                            <h4>Key Features</h4>
-                                            <ul className="specs-list">
-                                                {machine.features.map((feature, idx) => (
-                                                    <li key={idx}>{feature}</li>
-                                                ))}
-                                            </ul>
+                                    {/* Single image */}
+                                    {machine.image && (
+                                        <div className="machine-image-container">
+                                            <img
+                                                src={machine.image}
+                                                alt={machine.name}
+                                                className="machine-image"
+                                            />
                                         </div>
-                                    </div>
+                                    )}
+
+                                    {/* Multiple images as carousel */}
+                                    {machine.images && (
+                                        <div className="machine-image-container">
+                                            <MachineImageCarousel images={machine.images} altPrefix={machine.name} />
+                                        </div>
+                                    )}
+
+                                    {machine.features && (
+                                        <div className="machine-details">
+                                            <div className="machine-info-block">
+                                                <h4>Key Features</h4>
+                                                <ul className="specs-list">
+                                                    {machine.features.map((feature, idx) => (
+                                                        <li key={idx}>{feature}</li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
 
                                 {index < machines.length - 1 && <hr className="section-divider" />}
@@ -89,3 +110,4 @@ export default function Microhardness() {
         </section>
     );
 }
+

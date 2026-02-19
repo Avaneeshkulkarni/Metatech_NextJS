@@ -7,7 +7,7 @@ export default function MouldingConsumables() {
     const compressionMounting = [
         {
             name: "Bakelite / Phenolic Hot Moulding Powder",
-            image: "/images/logo.png",
+            image: "/moulding/bakelite.png",
             description: "Black, Red, Green colors available. Superior quality with relatively low shrinkage, high mechanical strength.",
             specs: [
                 "Specific Hardness - 55 Shore D",
@@ -18,17 +18,17 @@ export default function MouldingConsumables() {
         },
         {
             name: "Transparent Moulding Powder",
-            image: "/images/logo.png",
+            image: "/moulding/bakelite.png",
             description: "For Transparent Hot Moulding."
         },
         {
             name: "Resins (Glass Fiber Filled)",
-            image: "/images/logo.png",
+            image: "/moulding/epoxy.png",
             description: "BLACK EPOXY THERMOSETTING has superior edge retention, tough grinding and excellent flow characteristics. Chemical resistant. High hardness."
         },
         {
             name: "Diallyl Phthalate",
-            image: "/images/logo.png",
+            image: "/moulding/bakelite.png",
             description: "This has higher hardness and can be used as a front end or facing moulding material where the hardness difference of the stock (sample) and that of mounting resin is very high to avoid edge rounding effect.",
             details: [
                 "Also can be used in case of retaining small plating / coating layers.",
@@ -38,12 +38,12 @@ export default function MouldingConsumables() {
         },
         {
             name: "Conductive Mould Material",
-            image: "/images/logo.png",
+            image: "/moulding/conductive.png",
             description: "This is copper filled thermosetting resin that is electrically conductive."
         },
         {
             name: "Mould Release Spray",
-            image: "/images/logo.png",
+            image: "/moulding/mould.png",
             description: "It is advisable to spray the lubricant spray before hot and cold compression for easy ejection."
         }
     ];
@@ -51,7 +51,7 @@ export default function MouldingConsumables() {
     const coldMounting = [
         {
             name: "Cold Mounting System",
-            image: "/images/logo.png",
+            image: "/moulding/cold_mounting.png",
             description: "Cold mounting systems are preferred when speed and ease are desired, especially for high volume production. Curing cycle - 15 minutes.",
             details: [
                 "Binder 400 ml + Hardener 400 gm and 1 kg pack also available."
@@ -59,7 +59,7 @@ export default function MouldingConsumables() {
         },
         {
             name: "Silicon Rubber Moulds",
-            image: "/images/logo.png",
+            image: "/moulding/silicon_rubber.png",
             description: "Reusable mould for Cold Mounting.",
             specs: [
                 "Dia. 20mm, 25.4 mm, 30 mm, 31.75 mm, 40 mm, 50 mm",
@@ -68,7 +68,7 @@ export default function MouldingConsumables() {
         },
         {
             name: "Plastic Moulds",
-            image: "/images/logo.png",
+            image: "/moulding/plastic_mould.png",
             specs: [
                 "Dia. 25.4 mm, 31.75 mm, 40 mm",
                 "Or As per Customers Requirement"
@@ -76,7 +76,7 @@ export default function MouldingConsumables() {
         },
         {
             name: "Mounting Clips",
-            image: "/images/logo.png",
+            image: "/moulding/mountingclips.png",
             subtitle: "Sample Support Clips",
             description: "Series of Clips hold thin samples on edge for encapsulation. Use metal for compression mounting and plastic for cold mounting.",
             details: [

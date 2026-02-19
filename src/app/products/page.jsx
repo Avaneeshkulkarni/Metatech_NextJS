@@ -24,19 +24,19 @@ import "@/app/globals.css"; // Ensure styles are available if needed, though usu
 
 export default function ProductsPage() {
     const products = [
-        { href: "/products/auto_cutting", img: "/images/Metacut I Exposure Machine.png", title: "Cutting & Sectioning Machine" },
-        { href: "/products/moulding", img: "/images/New Grinder Image Maybe.png", title: "Moulding Machine" },
-        { href: "/products/grinding_polishing", img: "/images/New Grinder Image Maybe.png", title: "Grinding & Polishing Machine" },
+        { href: "/products/auto_cutting", img: "/Cutting and sectioning/Autocut_main.png", title: "Cutting & Sectioning Machine" },
+        { href: "/products/moulding", img: "/moulding/mould.png", title: "Moulding Machine" },
+        { href: "/products/grinding_polishing", img: "/grinding_polishing/autopol1.png", title: "Grinding & Polishing Machine" },
         { href: "/products/electropolishing", img: "/images/ECM New by Swapnil Sir.png", title: "ElectroPolishing Machine" },
-        { href: "/products/microscope", img: "/images/Microscope Metagraph Special SPL.png", title: "Microscope & Image Analyzer" },
-        { href: "/products/particle_analysis", img: "/images/Microscope Metagraph Special SPL.png", title: "Particle Size Analysis Contamination Estimation" },
-        { href: "/products/microhardness", img: "/images/Microscope Metagraph Special SPL.png", title: "Micorhardness Testers" },
-        { href: "/products/jominey", img: "/images/Twin Jet Thinning New.png", title: "Jominey End Quench Hardenability Set-up" },
-        { href: "/products/consumables", img: "/images/Component Cleaning.png", title: "Metallography Consumables" },
-        { href: "/products/in_situ_metallography", img: "/images/logo.png", title: "In-situ metallography kit" },
-        { href: "/products/hardness_testers", img: "/images/logo.png", title: "Hardness Testers" },
-        { href: "/products/hardness_test_blocks", img: "/images/logo.png", title: "Hardness Test Blocks Diamond Indenters" },
-        { href: "/products/cnc_tensile", img: "/images/logo.png", title: "CNC Tensile Sample Preparation Machines" }
+        { href: "/products/microscope", img: "/microscope/metagraph.png", title: "Microscope & Image Analyzer" },
+        { href: "/products/microhardness", img: "/microhardness_tester/mvh1000.png", title: "Microhardness Testers" },
+        { href: "/products/jominey", img: "/jeq/1.png", title: "Jominey End Quench Hardenability Set-up" },
+
+        { href: "/products/in_situ_metallography", img: "/insitu/m1.png", title: "In-situ Metallography Kit" },
+        { href: "/products/hardness_testers", img: "/hardness_tester/ht1.png", title: "Hardness Testers" },
+        { href: "/products/hardness_test_blocks", img: "/hardness_diamond/hd1.png", title: "Hardness Test Blocks Diamond Indenters" },
+        { href: "/products/cnc_tensile", img: "/images/cnc1.png", title: "CNC Tensile Sample Preparation Machines" },
+        { href: "/products/particle_analysis", img: "/magnetic/m1.png", title: "Magnetic Particle Inspection Consumables" }
     ];
 
     return (

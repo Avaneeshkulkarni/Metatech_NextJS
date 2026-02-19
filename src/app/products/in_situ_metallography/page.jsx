@@ -6,30 +6,21 @@ import ProductSidebar from '@/components/ProductSidebar';
 export default function InSituMetallography() {
     const items = [
         {
-            image: "/images/logo.png",
+            image: "/insitu/m1.png",
             title: "Item 1",
             description: "Description for item 1 coming soon."
         },
         {
-            image: "/images/logo.png",
+            image: "/insitu/m2.png",
             title: "Item 2",
             description: "Description for item 2 coming soon."
         },
         {
-            image: "/images/logo.png",
+            image: "/insitu/m3.png",
             title: "Item 3",
             description: "Description for item 3 coming soon."
         },
-        {
-            image: "/images/logo.png",
-            title: "Item 4",
-            description: "Description for item 4 coming soon."
-        },
-        {
-            image: "/images/logo.png",
-            title: "Item 5",
-            description: "Description for item 5 coming soon."
-        }
+
     ];
 
     return (

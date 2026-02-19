@@ -2,12 +2,13 @@
 import React from 'react';
 import Link from 'next/link';
 import ProductSidebar from '@/components/ProductSidebar';
+import MachineImageCarousel from '@/components/MachineImageCarousel';
 
 export default function Jominey() {
     const machines = [
         {
             name: "Hardness Fixture and Chiller",
-            image: "/images/logo.png",
+            images: ["/jeq/1.png", "/jeq/2.png", "/jeq/3.png"],
             features: [
                 "Motorized fixture for successive hardness indentations with precision positioning.",
                 "Fully automatic hardness tester with motorised programmable stage for direct jominy hardness test"
@@ -43,13 +44,23 @@ export default function Jominey() {
                                 <h2 className="machine-name">{machine.name}</h2>
 
                                 <div className="machine-content-wrapper">
-                                    <div className="machine-image-container">
-                                        <img
-                                            src={machine.image}
-                                            alt={machine.name}
-                                            className="machine-image"
-                                        />
-                                    </div>
+                                    {/* Single image */}
+                                    {machine.image && (
+                                        <div className="machine-image-container">
+                                            <img
+                                                src={machine.image}
+                                                alt={machine.name}
+                                                className="machine-image"
+                                            />
+                                        </div>
+                                    )}
+
+                                    {/* Multiple images as carousel */}
+                                    {machine.images && (
+                                        <div className="machine-image-container">
+                                            <MachineImageCarousel images={machine.images} altPrefix={machine.name} />
+                                        </div>
+                                    )}
 
                                     <div className="machine-details">
                                         <div className="machine-info-block">

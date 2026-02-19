@@ -2,13 +2,14 @@
 import React from 'react';
 import Link from 'next/link';
 import ProductSidebar from '@/components/ProductSidebar';
+import MachineImageCarousel from '@/components/MachineImageCarousel';
 
 export default function CNCTensile() {
     const machines = [
         {
             name: "CNC Tensile Sample Preparation Machine",
             subtitle: "Round and Flat",
-            image: "/images/logo.png",
+            images: ["/images/cnc1.png", "/images/cnc2.png"],
             features: [
                 "Precision sample preparation",
                 "Lesser time of production",
@@ -50,13 +51,10 @@ export default function CNCTensile() {
                                 {machine.subtitle && <h3 className="machine-subtitle">{machine.subtitle}</h3>}
 
                                 <div className="machine-content-wrapper">
-                                    <div className="machine-image-container">
-                                        <img
-                                            src={machine.image}
-                                            alt={machine.name}
-                                            className="machine-image"
-                                        />
-                                    </div>
+                                    <MachineImageCarousel
+                                        images={machine.images}
+                                        altPrefix={machine.name}
+                                    />
 
                                     <div className="machine-details">
                                         <div className="machine-info-block">

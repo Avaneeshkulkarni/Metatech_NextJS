@@ -1,4 +1,3 @@
-
 "use client";
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -64,7 +63,7 @@ const Carousel = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             nextSlide();
-        }, 3000); // 3000ms auto slide
+        }, 3000);
 
         return () => clearInterval(interval);
     }, [slideIndex]);

@@ -2,12 +2,15 @@
 import React from 'react';
 import Link from 'next/link';
 import ProductSidebar from '@/components/ProductSidebar';
+import MachineImageCarousel from '@/components/MachineImageCarousel';
 
 export default function ElectroPolishing() {
     const machines = [
         {
             name: "ELECTROPOL",
-            image: "/images/logo.png"
+            images: ["/images/electropol1.png",
+                "/images/electropol2.png"
+            ]
         }
     ];
 
@@ -39,13 +42,23 @@ export default function ElectroPolishing() {
                                 <h2 className="machine-name">{machine.name}</h2>
 
                                 <div className="machine-content-wrapper">
-                                    <div className="machine-image-container">
-                                        <img
-                                            src={machine.image}
-                                            alt={machine.name}
-                                            className="machine-image"
-                                        />
-                                    </div>
+                                    {/* Single image */}
+                                    {machine.image && (
+                                        <div className="machine-image-container">
+                                            <img
+                                                src={machine.image}
+                                                alt={machine.name}
+                                                className="machine-image"
+                                            />
+                                        </div>
+                                    )}
+
+                                    {/* Multiple images as carousel */}
+                                    {machine.images && (
+                                        <div className="machine-image-container">
+                                            <MachineImageCarousel images={machine.images} altPrefix={machine.name} />
+                                        </div>
+                                    )}
                                 </div>
 
                                 {index < machines.length - 1 && <hr className="section-divider" />}

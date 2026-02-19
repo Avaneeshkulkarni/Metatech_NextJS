@@ -3,14 +3,20 @@ import { useState, useEffect, useCallback } from 'react';
 
 const MachineImageCarousel = ({ images, altPrefix = "Machine" }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [fadeKey, setFadeKey] = useState(0);
+
+    const goToSlide = useCallback((index) => {
+        setCurrentIndex(index);
+        setFadeKey((prev) => prev + 1);
+    }, []);
 
     const nextSlide = useCallback(() => {
-        setCurrentIndex((prev) => (prev + 1) % images.length);
-    }, [images.length]);
+        goToSlide((currentIndex + 1) % images.length);
+    }, [currentIndex, images.length, goToSlide]);
 
     const prevSlide = useCallback(() => {
-        setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
-    }, [images.length]);
+        goToSlide((currentIndex - 1 + images.length) % images.length);
+    }, [currentIndex, images.length, goToSlide]);
 
     useEffect(() => {
         if (images.length <= 1) return;
@@ -36,9 +42,10 @@ const MachineImageCarousel = ({ images, altPrefix = "Machine" }) => {
         <div className="machine-carousel">
             <div className="machine-carousel-viewport">
                 <img
+                    key={fadeKey}
                     src={images[currentIndex]}
                     alt={`${altPrefix} - View ${currentIndex + 1}`}
-                    className="machine-carousel-image"
+                    className="machine-carousel-image machine-carousel-fade"
                 />
 
                 <button
@@ -62,7 +69,7 @@ const MachineImageCarousel = ({ images, altPrefix = "Machine" }) => {
                     <span
                         key={index}
                         className={`machine-carousel-dot ${index === currentIndex ? 'active' : ''}`}
-                        onClick={() => setCurrentIndex(index)}
+                        onClick={() => goToSlide(index)}
                     />
                 ))}
             </div>

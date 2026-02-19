@@ -41,20 +41,20 @@ export default function ProductSidebar() {
                 <li className="category-item">
                     <Link href="/products/microscope" className={isActive('/products/microscope')}>Microscope & Image Analyzer</Link>
                 </li>
-                <li className="category-item">
-                    <Link href="/products/particle_analysis" className={isActive('/products/particle_analysis')}>Particle Size Analysis</Link>
-                </li>
+
                 <li className="category-item">
                     <Link href="/products/microhardness" className={isActive('/products/microhardness')}>Microhardness Testers</Link>
                 </li>
                 <li className="category-item">
                     <Link href="/products/jominey" className={isActive('/products/jominey')}>Jominey End Quench Hardenability Set-up</Link>
                 </li>
-                <li className="category-item">
-                    <Link href="/products/consumables" className={isActive('/products/consumables')}>Metallography Consumables</Link>
-                </li>
-                <li className="category-item">
-                    <Link href="/products/in_situ_metallography" className={isActive('/products/in_situ_metallography')}>In-situ metallography kit</Link>
+
+                <li className={`category-item ${isCategoryActive(['/products/in_situ_metallography', '/products/in_situ_metallography/consumables'])}`}>
+                    <a href="#">In-situ metallography kit</a>
+                    <ul className="sub-category-menu">
+                        <li><Link href="/products/in_situ_metallography" className={isActive('/products/in_situ_metallography')}>Machines</Link></li>
+                        <li><Link href="/products/in_situ_metallography/consumables" className={isActive('/products/in_situ_metallography/consumables')}>Consumables</Link></li>
+                    </ul>
                 </li>
                 <li className="category-item">
                     <Link href="/products/hardness_testers" className={isActive('/products/hardness_testers')}>Hardness Testers</Link>
@@ -64,6 +64,9 @@ export default function ProductSidebar() {
                 </li>
                 <li className="category-item">
                     <Link href="/products/cnc_tensile" className={isActive('/products/cnc_tensile')}>CNC Tensile Sample Preparation</Link>
+                </li>
+                <li className="category-item">
+                    <Link href="/products/particle_analysis" className={isActive('/products/particle_analysis')}>Magnetic Particle Inspection Consumables</Link>
                 </li>
             </ul>
         </aside>

@@ -5,12 +5,12 @@ import ProductSidebar from '@/components/ProductSidebar';
 
 export default function HardnessTesters() {
     const images = [
-        { src: "/images/logo.png", alt: "Hardness Tester 1" },
-        { src: "/images/logo.png", alt: "Hardness Tester 2" },
-        { src: "/images/logo.png", alt: "Hardness Tester 3" },
-        { src: "/images/logo.png", alt: "Hardness Tester 4" },
-        { src: "/images/logo.png", alt: "Hardness Tester 5" },
-        { src: "/images/logo.png", alt: "Hardness Tester 6" }
+        { src: "/hardness_tester/ht1.png", alt: "Hardness Tester 1" },
+        { src: "/hardness_tester/ht2.png", alt: "Hardness Tester 2" },
+        { src: "/hardness_tester/ht3.png", alt: "Hardness Tester 3" },
+        { src: "/hardness_tester/ht4.png", alt: "Hardness Tester 4" },
+        { src: "/hardness_tester/ht5.png", alt: "Hardness Tester 5" },
+        { src: "/hardness_tester/ht6.png", alt: "Hardness Tester 6" }
     ];
 
     return (

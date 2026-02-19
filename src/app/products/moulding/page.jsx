@@ -2,19 +2,22 @@
 import React from 'react';
 import Link from 'next/link';
 import ProductSidebar from '@/components/ProductSidebar';
+import MachineImageCarousel from '@/components/MachineImageCarousel';
 
 export default function MouldingMachine() {
     const machines = [
         {
             name: "Electro Press",
             description: "Complete electro mechanical operation.",
-            image: "/images/New Grinder Image Maybe.png",
+            images: ["/moulding/electropress1.png",
+                "/moulding/electropress2.png"
+            ],
             imageCaption: "Automount E"
         },
         {
             name: "Electro Hydraulic Press",
             description: "Four mould capability with dual mould cylinder.",
-            image: "/images/New Grinder Image Maybe.png",
+            image: "/moulding/automounteh.png",
             specs: [
                 { label: "Pressure", value: "300 Bar" }
             ],
@@ -23,7 +26,7 @@ export default function MouldingMachine() {
         },
         {
             name: "Pneumatic Press",
-            image: "/images/New Grinder Image Maybe.png",
+            image: "/moulding/automount.png",
             imageCaption: "Automount"
         }
     ];
@@ -57,11 +60,15 @@ export default function MouldingMachine() {
 
                                 <div className="machine-content-wrapper">
                                     <div className="machine-image-container">
-                                        <img
-                                            src={machine.image}
-                                            alt={machine.name}
-                                            className="machine-image"
-                                        />
+                                        {machine.images ? (
+                                            <MachineImageCarousel images={machine.images} altPrefix={machine.name} />
+                                        ) : (
+                                            <img
+                                                src={machine.image}
+                                                alt={machine.name}
+                                                className="machine-image"
+                                            />
+                                        )}
                                         {machine.imageCaption && (
                                             <p className="image-caption">{machine.imageCaption}</p>
                                         )}

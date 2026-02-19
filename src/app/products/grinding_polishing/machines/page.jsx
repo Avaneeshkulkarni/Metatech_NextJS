@@ -2,13 +2,14 @@
 import React from 'react';
 import Link from 'next/link';
 import ProductSidebar from '@/components/ProductSidebar';
+import MachineImageCarousel from '@/components/MachineImageCarousel';
 
 export default function GrindingPolishingMachines() {
     const machines = [
         {
             name: "Metapol DC II",
             description: "Manual grinding / polishing machine",
-            image: "/images/New Grinder Image Maybe.png",
+            images: ["/grinding_polishing/metapoldc2.png", "/grinding_polishing/metapoldc21.png"],
             specs: [
                 { label: "Disc diameter", value: "200/250 mm" },
                 { label: "Optional Magnetic Fixation", value: "" }
@@ -23,14 +24,14 @@ export default function GrindingPolishingMachines() {
                 { label: "Easy belt replacement", value: "" },
                 { label: "Optional Suction arrangement for dust", value: "" }
             ],
-            images: [
-                { src: "/images/New Grinder Image Maybe.png", caption: "MBG I" },
-                { src: "/images/New Grinder Image Maybe.png", caption: "MBG II" }
+            captionedImages: [
+                { src: "/grinding_polishing/mgb1.png", caption: "MBG I" },
+                { src: "/grinding_polishing/mgb2.png", caption: "MBG II" }
             ]
         },
         {
             name: "Heavy Duty Belt Grinder",
-            image: "/images/New Grinder Image Maybe.png",
+            image: "/grinding_polishing/heavybelt.png",
             specs: [
                 { label: "Belt size", value: "150 x 2000" },
                 { label: "Motor", value: "3 hp" },
@@ -42,15 +43,15 @@ export default function GrindingPolishingMachines() {
         },
         {
             name: "Spectro Grinding Machine",
-            images: [
-                { src: "/images/New Grinder Image Maybe.png", caption: "Heavy duty" },
-                { src: "/images/New Grinder Image Maybe.png", caption: "Light duty" }
+            captionedImages: [
+                { src: "/grinding_polishing/heavyduty.png", caption: "Heavy duty" },
+                { src: "/grinding_polishing/lightduty.png", caption: "Light duty" }
             ]
         },
         {
             name: "Automatic Spectro Sample Grinding Machine",
             model: "Model Spectro Pol (Auto)",
-            image: "/images/New Grinder Image Maybe.png",
+            images: ["/grinding_polishing/spectropol1.png", "/grinding_polishing/spectropol2.png", "/grinding_polishing/spectropol3.png"],
             specs: [
                 { label: "Number of samples produced", value: "Three at a time" },
                 { label: "Belt size", value: "200 x 2000 mm" },
@@ -68,15 +69,25 @@ export default function GrindingPolishingMachines() {
                 { label: "Pneumatic or electrical operation", value: "" },
                 { label: "PLC based programmable operation panel", value: "" }
             ],
-            images: [
-                { src: "/images/New Grinder Image Maybe.png", caption: "Model - Autopol" },
-                { src: "/images/New Grinder Image Maybe.png", caption: "Model - Autopol Dual" }
+            captionedImages: [
+                {
+                    caption: "Model - Autopol",
+                    images: ["/grinding_polishing/autopol1.png", "/grinding_polishing/autopol2.png", "/grinding_polishing/autopol3.png"]
+                },
+                {
+                    caption: "Model - Autopol Dual",
+                    images: ["/grinding_polishing/autopol_dual1.png", "/grinding_polishing/autopol_dual2.png"]
+                }
             ]
         },
         {
             name: "Multi-specimen Grinding / Polishing Machine",
             description: "Auto grinding Arm mounted on Dual Pillar for attaining better flatness to the sample",
-            image: "/images/New Grinder Image Maybe.png",
+            images: [
+                "/grinding_polishing/autopol-II1.png",
+                "/grinding_polishing/autopol-II2.png",
+                "/grinding_polishing/autopol-II3.png"
+            ],
             specs: [
                 { label: "Discs options", value: "200 mm, 250 mm, 300 mm" },
                 { label: "Double pillar structure for complete flatness of sample", value: "" },
@@ -121,6 +132,7 @@ export default function GrindingPolishingMachines() {
                                 {machine.model && <h3 className="machine-model">{machine.model}</h3>}
 
                                 <div className="machine-content-wrapper">
+                                    {/* Single image */}
                                     {machine.image && (
                                         <div className="machine-image-container">
                                             <img
@@ -131,16 +143,33 @@ export default function GrindingPolishingMachines() {
                                         </div>
                                     )}
 
+                                    {/* Multiple images as carousel */}
                                     {machine.images && (
+                                        <div className="machine-image-container">
+                                            <MachineImageCarousel images={machine.images} altPrefix={machine.name} />
+                                        </div>
+                                    )}
+
+                                    {/* Captioned images: either simple {src, caption} or nested {caption, images[]} */}
+                                    {machine.captionedImages && (
                                         <div className="machine-images-grid">
-                                            {machine.images.map((img, imgIdx) => (
+                                            {machine.captionedImages.map((img, imgIdx) => (
                                                 <div key={imgIdx} className="machine-image-container">
-                                                    <img
-                                                        src={img.src}
-                                                        alt={`${machine.name} - ${img.caption}`}
-                                                        className="machine-image"
-                                                    />
-                                                    <p className="image-caption">{img.caption}</p>
+                                                    {img.images ? (
+                                                        <>
+                                                            <MachineImageCarousel images={img.images} altPrefix={`${machine.name} - ${img.caption}`} />
+                                                            <p className="image-caption">{img.caption}</p>
+                                                        </>
+                                                    ) : (
+                                                        <>
+                                                            <img
+                                                                src={img.src}
+                                                                alt={`${machine.name} - ${img.caption}`}
+                                                                className="machine-image"
+                                                            />
+                                                            <p className="image-caption">{img.caption}</p>
+                                                        </>
+                                                    )}
                                                 </div>
                                             ))}
                                         </div>

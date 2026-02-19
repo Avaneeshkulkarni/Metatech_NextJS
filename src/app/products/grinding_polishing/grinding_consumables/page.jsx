@@ -2,12 +2,13 @@
 import React from 'react';
 import Link from 'next/link';
 import ProductSidebar from '@/components/ProductSidebar';
+import MachineImageCarousel from '@/components/MachineImageCarousel';
 
 export default function GrindingConsumables() {
     const products = [
         {
             name: "Abrasive Grinding Disc",
-            image: "/images/logo.png",
+            images: ["/grinding_polishing/abersivedisc.png", "/grinding_polishing/grindingdisc.png"],
             description: "Silicon Carbide abrasive waterproof paper disc. (Wet/Dry) Paper Quality C weight.",
             specs: [
                 "Round Discs - 8\"/9\"/10\"/12\" dia. Plain / PSA Backed"
@@ -16,7 +17,7 @@ export default function GrindingConsumables() {
         },
         {
             name: "Grinding Discs for Spectro Polishing Machine",
-            image: "/images/logo.png",
+            image: "/grinding_polishing/grindingdisc.png",
             description: "Aloxite / Zircon (Plain/PSA) - Paper Base and Cloth Base.",
             specs: [
                 "10\" dia x 25.4 mm bore",
@@ -27,12 +28,12 @@ export default function GrindingConsumables() {
         },
         {
             name: "Sample Holder for Spectro Polishing Machine",
-            image: "/images/logo.png",
+            image: "/grinding_polishing/sampleholder.png",
             description: "Magnetic Sample / Coin Holder for Spectro Polishing Machine."
         },
         {
             name: "Abrasive Grinding Belts",
-            image: "/images/logo.png",
+            image: "/grinding_polishing/grindingbelt.png",
             description: "Aluminum Oxide / Zirkon Belts / Silicon Carbide.",
             specs: [
                 "100 x 915 mm",
@@ -42,7 +43,7 @@ export default function GrindingConsumables() {
         },
         {
             name: "Diamond Grinding Discs",
-            image: "/images/logo.png",
+            image: "/grinding_polishing/diamond_grinding.png",
             description: "Diamond Grinding Discs are available in standard sizes in both metal or resin bonded varieties with Pressure Sensitive Adhesive (PSA), plain back or overhanging cloth. They are recommended for coarse and fine grinding of high hardness materials.",
             details: [
                 "Metal flex feature a flexible, color-coded, open patterned metal bonded disc for aggressive cutting and reduced loading.",
@@ -54,7 +55,7 @@ export default function GrindingConsumables() {
         },
         {
             name: "Magnetic Fixation",
-            image: "/images/logo.png",
+            image: "/grinding_polishing/magfixation.png",
             description: "Magnetic base pad, which is permanently attached to the working wheel with a pressure-sensitive adhesive.",
             details: [
                 "PSA-backed polishing papers and cloths can be temporarily attached to a teflon-coated magnetic metal plate. This plate with the attached polishing Paper and cloths can be easily removed and exchanged.",
@@ -87,13 +88,23 @@ export default function GrindingConsumables() {
                                 <h2 className="machine-name">{product.name}</h2>
 
                                 <div className="machine-content-wrapper">
-                                    <div className="machine-image-container">
-                                        <img
-                                            src={product.image}
-                                            alt={product.name}
-                                            className="machine-image"
-                                        />
-                                    </div>
+                                    {/* Single image */}
+                                    {product.image && (
+                                        <div className="machine-image-container">
+                                            <img
+                                                src={product.image}
+                                                alt={product.name}
+                                                className="machine-image"
+                                            />
+                                        </div>
+                                    )}
+
+                                    {/* Multiple images as carousel */}
+                                    {product.images && (
+                                        <div className="machine-image-container">
+                                            <MachineImageCarousel images={product.images} altPrefix={product.name} />
+                                        </div>
+                                    )}
 
                                     <div className="machine-details">
                                         <p className="machine-description">{product.description}</p>

@@ -2,23 +2,24 @@
 import React from 'react';
 import Link from 'next/link';
 import ProductSidebar from '@/components/ProductSidebar';
+import MachineImageCarousel from '@/components/MachineImageCarousel';
 
 export default function Microscope() {
     const machines = [
         {
             name: "Inverted Microscope",
-            images: [
-                { src: "/images/Microscope Metagraph Special SPL.png", caption: "Metagraph-1" },
-                { src: "/images/Microscope Metagraph Special SPL.png", caption: "Metagraph - SPL" }
+            captionedImages: [
+                { src: "/microscope/metagraph.png", caption: "Metagraph-1" },
+                { src: "/microscope/metagraphspl.png", caption: "Metagraph - SPL" }
             ]
         },
         {
             name: "Upright Microscope",
-            image: "/images/Microscope Metagraph Special SPL.png"
+            image: "/microscope/uprightmsc.png"
         },
         {
             name: "Stereo Microscope",
-            image: "/images/Microscope Metagraph Special SPL.png"
+            image: "/microscope/stereomsc.png"
         },
         {
             name: "Particle Size Analysis System",
@@ -32,14 +33,14 @@ export default function Microscope() {
                 { label: "Usability", value: "Easy to use and quick to perform." },
                 { label: "Reporting", value: "Report generation as per User's requirement" }
             ],
-            images: [
+            captionedImages: [
                 {
-                    src: "/images/Microscope Metagraph Special SPL.png",
+                    src: "/microscope/stereomsc2.png",
                     caption: "A] Stereo",
                     subCaption: "for Particle Size greater than 10 microns"
                 },
                 {
-                    src: "/images/Microscope Metagraph Special SPL.png",
+                    src: "/microscope/metallurgical.png",
                     caption: "B] Metallurgical",
                     subCaption: "for Particle Size greater than 3 microns"
                 }
@@ -47,14 +48,23 @@ export default function Microscope() {
         },
         {
             name: "Millipore Fluid Contamination Analysis Kit",
-            image: "/images/Microscope Metagraph Special SPL.png",
+            images: ["/microscope/mfca1.png",
+                "/microscope/mfca2.png",
+                "/microscope/mfca3.png",
+                "/microscope/mfca4.png",
+                "/microscope/mfca5.png"
+            ],
             features: "Vacuum / Pressure Pump, Dispensing Pressure Vessel, Filter Paper, Filter Flask, Filter Jet Solvent Dispenser, Petri Slides, Dispensing Bottles, Solvent Filtering Dispenser"
         },
         {
             name: "Component Cleaning System",
-            image: "/images/Microscope Metagraph Special SPL.png",
+            image: "/microscope/componentcleaning.png",
             description: "Component cleaning system for filter paper analysis / cleanness or particle size estimation.",
             features: "Auto filtration of cleaning fluid with various filters. PLC based automation program and touch screen HMI"
+        },
+        {
+            name: "Image Analyser",
+            image: "/microscope/imganalyzer.png"
         }
     ];
 
@@ -97,10 +107,17 @@ export default function Microscope() {
                                         </div>
                                     )}
 
-                                    {/* Multiple images display */}
+                                    {/* Multiple images as carousel */}
                                     {machine.images && (
+                                        <div className="machine-image-container">
+                                            <MachineImageCarousel images={machine.images} altPrefix={machine.name} />
+                                        </div>
+                                    )}
+
+                                    {/* Captioned images grid */}
+                                    {machine.captionedImages && (
                                         <div className="machine-images-grid">
-                                            {machine.images.map((img, imgIdx) => (
+                                            {machine.captionedImages.map((img, imgIdx) => (
                                                 <div key={imgIdx} className="machine-image-container">
                                                     <img
                                                         src={img.src}

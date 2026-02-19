@@ -34,12 +34,15 @@ const Footer = () => {
                         <li><Link href="/products/moulding">Moulding Machines</Link></li>
                         <li><Link href="/products/grinding_polishing">Grinding & Polishing</Link></li>
                         <li><Link href="/products/electropolishing">ElectroPolishing</Link></li>
-                        <li><Link href="/products/microscope">Microscopes & Analyzers</Link></li>
+                        <li><Link href="/products/microscope">Microscope & Image Analyzer</Link></li>
                         <li><Link href="/products/microhardness">Microhardness Testers</Link></li>
-                        <li><Link href="/products/consumables">Consumables</Link></li>
-                        <li><Link href="/products/in_situ_metallography">In-situ metallography kit</Link></li>
+                        <li><Link href="/products/jominey">Jominey End Quench Hardenability Set-up</Link></li>
+
+                        <li><Link href="/products/in_situ_metallography">In-situ Metallography Kit</Link></li>
                         <li><Link href="/products/hardness_testers">Hardness Testers</Link></li>
-                        <li><Link href="/products/hardness_test_blocks">Hardness Test Blocks</Link></li>
+                        <li><Link href="/products/hardness_test_blocks">Hardness Test Blocks Diamond Indenters</Link></li>
+                        <li><Link href="/products/cnc_tensile">CNC Tensile Sample Preparation</Link></li>
+                        <li><Link href="/products/particle_analysis">Magnetic Particle Inspection Consumables</Link></li>
                     </ul>
                 </div>
 
